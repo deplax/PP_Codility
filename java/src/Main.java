@@ -3,7 +3,8 @@ public class Main {
     public static void main(String[] args) {
 
         Solution solution = new Solution();
-        System.out.println(solution.solution(9));
+        System.out.println(solution.solution(1041));
+        System.out.println(solution.solution(5));
 
     }
 }
@@ -11,25 +12,14 @@ public class Main {
 
 class Solution {
     public int solution(int N) {
-
-        Boolean start = false;
-        Boolean beforeOne = false;
-
-        int length = 0;
-        int other = 0;
-
         String entire = "";
-
+        int length = 0;
         int tempLength = 0;
 
         while (N > 1) {
-            other = N % 2;
+            int other = N % 2;
             N = N / 2;
             entire = String.valueOf(other) + entire;
-
-            // 1이면 카운트 한다
-            // 0이면 카운트 한다.
-            // 1이면 카운트를 종료한다.
 
             if (other == 1 && tempLength == 0){
                 tempLength++;
@@ -45,11 +35,13 @@ class Solution {
 
         if (tempLength > 1){
             if (tempLength > length){
-                length = tempLength++;
+                length = tempLength;
             }
         }
 
-        if (length < 2){
+        length--;
+
+        if (length < 0){
             length = 0;
         }
 
